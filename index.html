@@ -100,8 +100,7 @@
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 36px; z-index: 1000;
         }
-        .logo { height: 65px; border-radius: 8px; animation: neon-logo 2s infinite alternate; }
-        @keyframes neon-logo { from { box-shadow: 0 0 4px #fff, 0 0 8px var(--vermelho); } to { box-shadow: 0 0 8px #fff, 0 0 16px var(--vermelho); } }
+        .logo { height: 65px; border-radius: 8px; }
         .cart-icon { background: var(--vermelho); color: white; padding: 10px 18px; border-radius: 25px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; border: 2px solid transparent; }
         .cart-active { animation: neon-pulse 1.5s infinite alternate; border-color: #fff; }
         @keyframes neon-pulse { from { box-shadow: 0 0 5px #fff, 0 0 10px var(--vermelho); transform: scale(1); } to { box-shadow: 0 0 15px #fff, 0 0 25px var(--vermelho); transform: scale(1.05); } }
@@ -134,6 +133,110 @@
             transition: transform 0.2s; text-transform: uppercase;
         }
         .btn-meio-meio:active { transform: scale(0.98); }
+
+        .dicas-meio-meio {
+            background: #fffaf0;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin: 0 0 20px 0;
+            border-left: 5px solid var(--vermelho);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .dica-calculo {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #ffd966;
+        }
+        .dica-icone {
+            font-size: 28px;
+            background: #fff0d6;
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .dica-texto {
+            flex: 1;
+            font-size: 13px;
+            color: #5a3e1b;
+            line-height: 1.4;
+        }
+        .dica-texto strong {
+            color: var(--verde);
+            font-weight: 800;
+        }
+        .dica-texto .exemplo {
+            background: #fff2e0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 6px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .combinacoes-titulo {
+            font-weight: bold;
+            margin: 8px 0 8px 0;
+            font-size: 13px;
+            color: #e65100;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .grid-combinacoes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .combinacao-item {
+            background: white;
+            border-radius: 40px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #ffe0b3;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .combinacao-item:active {
+            transform: scale(0.97);
+            background: #fff1e0;
+            border-color: var(--vermelho);
+        }
+        .combinacao-emoji {
+            font-size: 20px;
+            background: #f5f0e6;
+            border-radius: 30px;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .combinacao-nome {
+            flex: 1;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 480px) {
+            .grid-combinacoes {
+                grid-template-columns: 1fr;
+            }
+            .combinacao-nome {
+                white-space: normal;
+            }
+        }
 
         .secao-promocao {
             background: linear-gradient(135deg, #fff9c4, #fff176);
@@ -232,7 +335,7 @@
         .details-value { color: #333; text-align: right; }
         .details-badge { display: inline-block; background: var(--ouro); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
 
-        .mapa-container { width: 100%; overflow: hidden; border-radius: 15px; margin-bottom: 15px; }
+        .mapa-container { width: 100%; overflow: hidden; border-radius: 15px; margin-bottom: 15px; min-height: 250px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; }
         .btn-rota { background: var(--azul-maps); color: white; padding: 14px; border-radius: 10px; font-weight: bold; font-size: 15px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; margin-bottom: 25px; }
         .secao-patrocinadores { margin-top: 30px; }
         .container-banners-patrocinados { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
@@ -255,7 +358,6 @@
 </head>
 <body>
 
-    <!-- SPLASH SCREEN -->
     <div id="splash-screen">
         <div class="splash-content">
             <img src="https://i.ibb.co/tpqXXKPN/1000254310-removebg-preview-1.png" class="splash-logo" alt="Pizzaria Brasiliana">
@@ -263,7 +365,6 @@
         </div>
     </div>
 
-    <!-- LETREIRO COPA -->
     <div class="letreiro-copa" id="letreiro-copa">
         <div class="marquee">
             <span>⚽ A COPA VEM AÍ! ⚽</span>
@@ -276,7 +377,6 @@
         </div>
     </div>
 
-    <!-- POP-UP PRÉ-COPA -->
     <div id="popup-copa-overlay" class="popup-copa-overlay">
         <div class="popup-copa-box">
             <span class="popup-copa-close" onclick="fecharPopupCopa()">✕</span>
@@ -291,7 +391,6 @@
         </div>
     </div>
 
-    <!-- HEADER -->
     <header>
         <img src="https://i.ibb.co/tpqXXKPN/1000254310-removebg-preview-1.png" class="logo" alt="Pizzaria Brasiliana">
         <div class="cart-icon" id="btn-carrinho" onclick="abrirCarrinho()">
@@ -299,7 +398,6 @@
         </div>
     </header>
 
-    <!-- NAV -->
     <nav id="main-nav">
         <a href="#especiais">⭐ Especiais</a>
         <a href="#classicas">🍕 Clássicas</a>
@@ -315,31 +413,43 @@
             🍕 MONTAR PIZZA MEIO A MEIO (2 SABORES)
         </div>
 
+        <div class="dicas-meio-meio">
+            <div class="dica-calculo">
+                <div class="dica-icone">💡</div>
+                <div class="dica-texto">
+                    <strong>Sabia que no meio a meio você paga a MÉDIA dos dois sabores?</strong><br>
+                    Exemplo: 🇧🇷 Brasiliana (R$79,90) + 🧀 4 Queijos (R$83,90) = <strong>R$81,90</strong><br>
+                    <span class="exemplo">📐 Sem taxas extras, justo e saboroso!</span>
+                </div>
+            </div>
+            <div class="combinacoes-titulo">
+                🔥 Combinações queridinhas pela galera (clique e monte já!)
+            </div>
+            <div class="grid-combinacoes" id="grid-combinacoes">
+            </div>
+        </div>
+
         <section id="especiais"><div class="titulo-secao">⭐ ESPECIAIS DA CASA</div><div id="lista-pizzas-especiais"></div><button id="btn-mais-especiais" class="btn-ver-mais" onclick="mostrarMais('especiais')">Mostrar mais Especiais</button></section>
         <section id="classicas"><div class="titulo-secao">🍕 PIZZAS CLÁSSICAS</div><div id="lista-pizzas-classicas"></div><button id="btn-mais-classicas" class="btn-ver-mais" onclick="mostrarMais('classicas')">Mostrar mais Clássicas</button></section>
         <section id="promocao"><div class="secao-promocao"><img src="https://i.ibb.co/PGm6t0ps/IMG-20260522-WA0014.jpg" alt="Promoção" class="img-promocao-pequena"><div class="promocao-info"><div class="badge-promocao-pequeno">🔥 OFERTA ESPECIAL 🔥</div><div class="titulo-promocao-pequeno">Compre 1 Pizza Grande (8 fatias)</div><div class="desc-promocao-pequena">Ganhe: <strong>Guaraná Mineiro 1,5L</strong> ou <strong>Borda Recheada Catupiry</strong>!</div><button class="btn-promocao-pequeno" onclick="abrirModalPromocao()">🎁 QUERO ESSA PROMOÇÃO</button></div></div></section>
         <section id="economicas"><div class="titulo-secao" style="color:var(--verde); border-color:var(--verde)">💰 PIZZAS ECONÔMICAS</div><div id="lista-pizzas-economicas"></div><button id="btn-mais-economicas" class="btn-ver-mais" onclick="mostrarMais('economicas')">Mostrar mais Econômicas</button></section>
         <section id="doces"><div class="titulo-secao" style="color:var(--marrom); border-color:var(--marrom)">🍫 PIZZAS DOCES</div><div id="lista-pizzas-doces"></div></section>
         
-        <!-- SEÇÃO BEBIDAS -->
         <section id="bebidas"><div class="titulo-secao" style="color:#1565c0; border-color:#1565c0">🥤 BEBIDAS</div><div id="lista-bebidas"></div></section>
 
-        <!-- SEÇÃO COMÉRCIO LOCAL (ANUNCIANTES) - MOVIDA PARA LOGO ABAIXO DAS BEBIDAS -->
         <section class="secao-patrocinadores">
             <div class="titulo-secao" style="color: #666; border-color: #ccc; font-size: 15px;">🤝 COMÉRCIO LOCAL</div>
             <div class="container-banners-patrocinados">
-                <!-- Anunciante 1: Disk Bebidas Central -->
                 <a href="https://wa.me/5534991058994?text=Olá,%20vi%20vocês%20no%20cardápio%20da%20Pizzaria!" target="_blank" class="card-banner-patrocinado">
-                    <img src="https://i.ibb.co/7Jptt65p/file-00000000593071f995b31ebf818f7d02.png" class="img-banner-patrocinado" alt="Distribuidora">
+                    <img src="https://i.ibb.co/7Jptt65p/file-00000000593071f995b31ebf818f7d02.png" class="img-banner-patrocinado" alt="Distribuidora" loading="lazy">
                     <div class="info-banner-patrocinado">
                         <span class="tag-patrocinado">Anúncio Parceiro</span>
                         <h4 class="nome-banner-patrocinado">Disk Bebidas Central</h4>
                         <p class="desc-banner-patrocinado">Cerveja gelada, refrigerantes e gelo</p>
                     </div>
                 </a>
-                <!-- Anunciante 2: Sorveteria Pinguim -->
                 <a href="https://wa.me/5534991058994?text=Olá,%20vi%20vocês%20no%20cardápio%20da%20Pizzaria!" target="_blank" class="card-banner-patrocinado">
-                    <img src="https://i.ibb.co/7Jptt65p/file-00000000593071f995b31ebf818f7d02.png" class="img-banner-patrocinado" alt="Sorveteria">
+                    <img src="https://i.ibb.co/7Jptt65p/file-00000000593071f995b31ebf818f7d02.png" class="img-banner-patrocinado" alt="Sorveteria" loading="lazy">
                     <div class="info-banner-patrocinado">
                         <span class="tag-patrocinado">Anúncio Parceiro</span>
                         <h4 class="nome-banner-patrocinado">Sorveteria Pinguim</h4>
@@ -349,12 +459,9 @@
             </div>
         </section>
 
-        <section id="localizacao"><div class="titulo-secao" style="color: var(--azul-maps); border-color: var(--azul-maps)">📍 NOSSA LOCALIZAÇÃO</div><div class="mapa-container"><iframe src="https://maps.google.com/maps?q=Pizzaria%20Brasiliana&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div><a href="https://maps.google.com/?q=Pizzaria+Brasiliana" target="_blank" class="btn-rota">🗺️ ABRIR ROTA NO GPS</a></section>
-        
-        <!-- Os patrocinadores foram movidos para cima, logo após bebidas. -->
+        <section id="localizacao"><div class="titulo-secao" style="color: var(--azul-maps); border-color: var(--azul-maps)">📍 NOSSA LOCALIZAÇÃO</div><div class="mapa-container" id="map-container"><div style="padding: 20px; text-align: center;">🗺️ Mapa será carregado aqui...</div></div><a href="https://maps.google.com/?q=Pizzaria+Brasiliana" target="_blank" class="btn-rota">🗺️ ABRIR ROTA NO GPS</a></section>
     </div>
 
-    <!-- MODAIS -->
     <div id="promocao-modal" class="modal" onclick="if(event.target == this) fecharModalPromocao()">
         <div class="modal-content" style="height: auto; max-height: 90vh;"><div class="modal-close" onclick="fecharModalPromocao()">✕</div><div class="modal-scroll-area" style="padding-bottom: 20px;"><div class="modal-header"><img id="promo-modal-img" src="https://i.ibb.co/PGm6t0ps/IMG-20260522-WA0014.jpg" style="height: 150px;"></div><h2 style="margin: 15px 0 5px; color: #e65100;">🎁 PROMOÇÃO ESPECIAL</h2><p style="color:#666; font-size: 14px;">Na compra de qualquer pizza grande (8 fatias), ganhe um brinde à sua escolha:</p><div class="opcoes-titulo">🍕 1. ESCOLHA A PIZZA</div><select id="select-pizza-promocao" class="select-sabor" onchange="atualizarPrecoPromocao()"></select><div style="font-size: 14px; margin-bottom: 10px;">Valor da pizza: <strong id="promo-pizza-preco">R$ 0,00</strong></div><div class="opcoes-titulo">🎁 2. ESCOLHA SEU BRINDE</div><div id="lista-brindes"><div class="opcao-item"><label><input type="radio" name="brinde" value="refri" checked> 🥤 Guaraná Mineiro 1,5 Litros</label><span style="color: var(--verde); font-weight: bold;">GRÁTIS</span></div><div class="opcao-item"><label><input type="radio" name="brinde" value="borda"> 🧀 Borda Recheada de Catupiry</label><span style="color: var(--verde); font-weight: bold;">GRÁTIS</span></div></div><div class="opcoes-titulo">ESCOLHA A BORDA (adicional)</div><div id="modal-lista-bordas-promo"></div><div class="opcoes-titulo">ADICIONAIS EXTRAS</div><div id="modal-lista-extras-promo"></div></div><div class="modal-footer"><div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom:12px; font-size: 18px;"><span>Total:</span><span id="promo-total-item">R$ 0,00</span></div><button class="btn-confirmar" onclick="adicionarPromocaoAoCarrinho()">✅ ADICIONAR PROMOÇÃO AO PEDIDO</button></div></div>
     </div>
@@ -363,7 +470,6 @@
     </div>
     <div id="pizza-modal" class="modal" onclick="if(event.target == this) fecharModal()">
         <div class="modal-content"><div class="modal-close" onclick="fecharModal()">✕</div><div class="modal-scroll-area"><div class="modal-header"><img id="modal-img" src=""></div><h2 id="modal-nome" style="margin: 20px 0 10px;"></h2><p id="modal-desc" style="color:#666; font-size: 14px;"></p><div id="container-selecao-sabores" style="display: none;"><div class="opcoes-titulo">PRIMEIRA METADE (SABOR 1)</div><select id="select-sabor-1" class="select-sabor" onchange="atualizarSaborMeioMeio()"></select><div class="opcoes-titulo">SEGUNDA METADE (SABOR 2)</div><select id="select-sabor-2" class="select-sabor" onchange="atualizarSaborMeioMeio()"></select></div><div class="opcoes-titulo">ESCOLHA A BORDA</div><div id="modal-lista-bordas"></div><div class="opcoes-titulo">ADICIONAIS EXTRAS</div><div id="modal-lista-extras"></div>
-        <!-- NOVA SEÇÃO BEBIDA NO MODAL -->
         <div class="opcoes-titulo">🥤 ESCOLHA UMA BEBIDA (OPCIONAL)</div>
         <div id="modal-lista-bebidas"></div>
         </div><div class="modal-footer"><div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom:12px;"><span>Subtotal:</span><span id="modal-total-item">R$ 0,00</span></div><button class="btn-confirmar" onclick="adicionarAoCarrinho()">ADICIONAR AO PEDIDO</button></div></div>
@@ -374,7 +480,6 @@
     <a href="https://wa.me/5534996754100" class="btn-whats" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
 
     <script>
-        // ========== DADOS ==========
         const dadosPizzas = [
             {id:"01",nome:"BRASILIANA",preco:79.90,img:"https://i.ibb.co/m5YybcfK/file-000000002d6471fb9662313aa0656e6a.png",desc:"Presunto, mussarela, frango, bacon, tomate, calabresa, milho, ervilha, cebola e azeitona.", tipo:"especiais", destaque:true},
             {id:"02",nome:"4 QUEIJOS",preco:83.90,img:"https://i.ibb.co/cKCbbc4f/a2b247b0-4b47-11f1-8d2b-1dd607eaae00.png",desc:"Mussarela, parmezone, provolone e catupiry.", tipo:"especiais"},
@@ -433,12 +538,13 @@
         const listaExtras = [
             {nome: "Bacon", preco: 12.00, destaque: true},{nome: "Calabresa", preco: 14.00, destaque: true},{nome: "Catupiry Scala", preco: 14.00},{nome: "Frango", preco: 12.00},{nome: "Palmito", preco: 14.00},{nome: "Mussarela", preco: 14.00, destaque: true},{nome: "Batata Palha", preco: 10.00},{nome: "Cheddar", preco: 14.00},{nome: "Ovos", preco: 11.00}
         ];
+        
         let carrinho = [], pizzaSendoEditada = null, indexSendoEditado = null, modoMeioMeio = false, visibilidadeCategorias = { especiais: false, classicas: false, economicas: false }, valorFrete = 0, itemIndexParaEditar = null, promocaoPizzaSelecionada = null, promocaoBordaSelecionada = null, promocaoExtrasSelecionados = [];
 
+        // Funções principais (mantidas, mas otimizadas)
         function calcularFrete(){ valorFrete=parseFloat(document.getElementById('select-bairro').value)||0; atualizarTotalCarrinho(); }
         function atualizarTotalCarrinho(){ document.getElementById('carrinho-total').innerHTML=`R$ ${(carrinho.reduce((a,b)=>a+b.total,0)+valorFrete).toFixed(2)}`; }
 
-        // Detalhes do item (suporta bebida)
         function abrirModalDetalhes(index){ 
             let item=carrinho[index]; itemIndexParaEditar=index;
             if(item.tipo === 'bebida') {
@@ -470,7 +576,6 @@
         function fecharModalDetalhes(){ let m=document.getElementById('details-modal'); m.classList.remove('active'); setTimeout(()=>m.style.display='none',400); itemIndexParaEditar=null; }
         function editarDoModal(){ if(itemIndexParaEditar!==null){ fecharModalDetalhes(); editarItemCarrinho(itemIndexParaEditar); } }
 
-        // Promoção (sem alteração de bebida)
         function abrirModalPromocao(){
             promocaoExtrasSelecionados=[]; promocaoBordaSelecionada=listaBordas[0];
             let select=document.getElementById('select-pizza-promocao');
@@ -493,17 +598,15 @@
             carrinho.push(item); atualizarContadorCarrinho(); fecharModalPromocao(); setTimeout(abrirCarrinho,400);
         }
         
-        // Populate selects meio a meio
         function popularSelectsSabores(){ let opcoes=dadosPizzas.map(p=>`<option value="${p.id}">${p.id} - ${p.nome} (R$ ${p.preco.toFixed(2)})</option>`).join(''); document.getElementById('select-sabor-1').innerHTML=opcoes; document.getElementById('select-sabor-2').innerHTML=opcoes; document.getElementById('select-sabor-2').selectedIndex=1; }
         
-        // Render cardápio (inclui bebidas)
         function renderizarCardapioPizzas(){ 
             let sec={ especiais:document.getElementById('lista-pizzas-especiais'), classicas:document.getElementById('lista-pizzas-classicas'), economicas:document.getElementById('lista-pizzas-economicas'), doce:document.getElementById('lista-pizzas-doces') };
             for(let k in sec) sec[k].innerHTML="";
             let cont={ especiais:0, classicas:0, economicas:0 }, LIM=4;
             dadosPizzas.forEach(p=>{
                 let selo=p.destaque?'<div class="selo-pizza">🏆 MAIS PEDIDA</div>':'';
-                let card=`<div class="pizza-card" onclick="abrirModalPersonalizar('${p.id}')"><div class="pizza-img-wrapper"><img src="${p.img}" class="pizza-img"></div><div class="pizza-info">${selo}<h3 class="pizza-nome">${p.id} - ${p.nome}</h3><div class="preco-e-botao"><span class="pizza-preco">R$ ${p.preco.toFixed(2)}</span><button class="btn-adicionar-pizza" onclick="event.stopPropagation(); abrirModalPersonalizar('${p.id}')">➕ Adicionar</button></div></div></div>`;
+                let card=`<div class="pizza-card" onclick="abrirModalPersonalizar('${p.id}')"><div class="pizza-img-wrapper"><img src="${p.img}" class="pizza-img" loading="lazy"></div><div class="pizza-info">${selo}<h3 class="pizza-nome">${p.id} - ${p.nome}</h3><div class="preco-e-botao"><span class="pizza-preco">R$ ${p.preco.toFixed(2)}</span><button class="btn-adicionar-pizza" onclick="event.stopPropagation(); abrirModalPersonalizar('${p.id}')">➕ Adicionar</button></div></div></div>`;
                 if(p.tipo==="doce") sec.doce.innerHTML+=card;
                 else if(visibilidadeCategorias[p.tipo]||cont[p.tipo]<LIM){ sec[p.tipo].innerHTML+=card; cont[p.tipo]++; }
             });
@@ -518,7 +621,6 @@
                     btn.setAttribute("onclick", visibilidadeCategorias[tipo]?`ocultarMais('${tipo}')`:`mostrarMais('${tipo}')`);
                 }
             });
-            // Bebidas
             let containerBebidas = document.getElementById('lista-bebidas');
             containerBebidas.innerHTML = listaBebidas.map(b => `
                 <div class="bebida-card" onclick="adicionarBebidaAvulsa('${b.nome}', ${b.preco})">
@@ -542,7 +644,6 @@
         function mostrarMais(c){ visibilidadeCategorias[c]=true; renderizarCardapioPizzas(); }
         function ocultarMais(c){ visibilidadeCategorias[c]=false; renderizarCardapioPizzas(); document.getElementById(c)?.scrollIntoView({behavior:'smooth'}); }
         
-        // Modal pizza com bebida
         function abrirModalPersonalizar(id){
             modoMeioMeio=false; indexSendoEditado=null;
             document.getElementById('container-selecao-sabores').style.display='none';
@@ -553,16 +654,39 @@
             document.getElementById('modal-desc').innerText=pizza.desc;
             renderizarOpcoesModal(); atualizarTotalModal(); exibirModalFisico();
         }
-        function abrirModalMeioMeio(){
-            modoMeioMeio=true; indexSendoEditado=null;
+        
+        function abrirMeioMeioComSabores(idSabor1, idSabor2){
+            modoMeioMeio = true;
+            indexSendoEditado = null;
             document.getElementById('container-selecao-sabores').style.display='block';
             document.getElementById('modal-img').src="https://i.ibb.co/m5YybcfK/file-000000002d6471fb9662313aa0656e6a.png";
             document.getElementById('modal-nome').innerText="PIZZA MEIO A MEIO";
             document.getElementById('modal-desc').innerText="Combine dois sabores. O valor final será a média dos dois.";
-            document.getElementById('select-sabor-1').selectedIndex=0; document.getElementById('select-sabor-2').selectedIndex=1;
-            pizzaSendoEditada={id:"MM",nome:"MEIO A MEIO",idSabor1:document.getElementById('select-sabor-1').value,idSabor2:document.getElementById('select-sabor-2').value,borda:listaBordas[0],extras:[],bebida:null,preco:0,total:0,ehMeioMeio:true};
-            renderizarOpcoesModal(); atualizarSaborMeioMeio(); exibirModalFisico();
+            popularSelectsSabores();
+            document.getElementById('select-sabor-1').value = idSabor1;
+            document.getElementById('select-sabor-2').value = idSabor2;
+            let s1 = dadosPizzas.find(p=>p.id===idSabor1);
+            let s2 = dadosPizzas.find(p=>p.id===idSabor2);
+            let precoMedio = (s1.preco + s2.preco)/2;
+            pizzaSendoEditada = {
+                id:"MM",
+                nome:`½ ${s1.nome} + ½ ${s2.nome}`,
+                idSabor1: idSabor1,
+                idSabor2: idSabor2,
+                borda: listaBordas[0],
+                extras: [],
+                bebida: null,
+                preco: precoMedio,
+                total: precoMedio,
+                ehMeioMeio: true
+            };
+            renderizarOpcoesModal();
+            atualizarTotalModal();
+            exibirModalFisico();
         }
+
+        function abrirModalMeioMeio(){ abrirMeioMeioComSabores("01", "02"); }
+        
         function fecharModal(){ let m=document.getElementById('pizza-modal'); m.classList.remove('active'); setTimeout(()=>m.style.display='none',400); }
         function exibirModalFisico(){ let m=document.getElementById('pizza-modal'); m.style.display='flex'; setTimeout(()=>m.classList.add('active'),10); }
         function atualizarSaborMeioMeio(){
@@ -577,7 +701,6 @@
         function renderizarOpcoesModal(){
             document.getElementById('modal-lista-bordas').innerHTML=listaBordas.map((b,i)=>`<div class="opcao-item"><label><input type="radio" name="borda" onchange="selecionarBorda(${i})" ${i==0?'checked':''}> ${b.nome}${b.destaque?'<span class="selo-opcao">⭐</span>':''}</label><span>+ R$ ${b.preco.toFixed(2)}</span></div>`).join('');
             document.getElementById('modal-lista-extras').innerHTML=listaExtras.map((e,i)=>`<div class="opcao-item"><label><input type="checkbox" onchange="toggleExtra(${i})"> ${e.nome}${e.destaque?'<span class="selo-opcao">🔥</span>':''}</label><span>+ R$ ${e.preco.toFixed(2)}</span></div>`).join('');
-            // Bebidas
             let bebidasHtml = `<div class="bebida-radio-group">`;
             listaBebidas.forEach((b, idx) => {
                 bebidasHtml += `<div class="bebida-radio-item"><label><input type="radio" name="bebida_pizza" value="${idx}" ${pizzaSendoEditada.bebida && pizzaSendoEditada.bebida.nome === b.nome ? 'checked' : ''} onchange="selecionarBebida(${idx})"> ${b.nome}</label><span>R$ ${b.preco.toFixed(2)}</span></div>`;
@@ -618,6 +741,7 @@
             }
             if(pizzaSendoEditada.ehMeioMeio){
                 modoMeioMeio=true; document.getElementById('container-selecao-sabores').style.display='block';
+                popularSelectsSabores();
                 document.getElementById('select-sabor-1').value=pizzaSendoEditada.idSabor1;
                 document.getElementById('select-sabor-2').value=pizzaSendoEditada.idSabor2;
                 atualizarSaborMeioMeio();
@@ -709,15 +833,56 @@
         window.addEventListener('load',highlightNavOnScroll);
         document.querySelectorAll('#main-nav a').forEach(l=>l.addEventListener('click',()=>setTimeout(highlightNavOnScroll,500)));
 
-        window.addEventListener('DOMContentLoaded',()=>{
-            setTimeout(()=>{
-                let splash=document.getElementById('splash-screen'); if(splash) splash.classList.add('splash-hidden');
-                setTimeout(mostrarPopupCopa,7000);
-            },3000);
+        function popularCombinacoes() {
+            const combinacoes = [
+                { id1:"01", id2:"10", emoji1:"🇧🇷", emoji2:"🧀", nome1:"Brasiliana", nome2:"Frango com Catupiry" },
+                { id1:"02", id2:"10", emoji1:"🧀", emoji2:"🍗", nome1:"4 Queijos", nome2:"Frango com Catupiry" },
+                { id1:"04", id2:"17", emoji1:"🍕", emoji2:"🥓", nome1:"Calabresa", nome2:"Bacon" },
+                { id1:"40", id2:"42", emoji1:"🍫", emoji2:"🍌", nome1:"Prestígio", nome2:"Banana" }
+            ];
+            const grid = document.getElementById('grid-combinacoes');
+            grid.innerHTML = combinacoes.map(comb => `
+                <div class="combinacao-item" onclick="abrirMeioMeioComSabores('${comb.id1}', '${comb.id2}')">
+                    <div class="combinacao-emoji">${comb.emoji1} ${comb.emoji2}</div>
+                    <div class="combinacao-nome">${comb.nome1} + ${comb.nome2}</div>
+                    <span style="font-size:10px; color:#e65100;">⚡</span>
+                </div>
+            `).join('');
+        }
+
+        // Lazy loading do mapa
+        function initMapLazyLoad() {
+            const mapContainer = document.getElementById('map-container');
+            if (!mapContainer) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        mapContainer.innerHTML = '<iframe src="https://maps.google.com/maps?q=Pizzaria%20Brasiliana&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
+                        observer.disconnect();
+                    }
+                });
+            }, { rootMargin: "200px" });
+            
+            observer.observe(mapContainer);
+        }
+
+        window.addEventListener('DOMContentLoaded',() => {
+            // Splash screen mais rápida
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    let splash = document.getElementById('splash-screen');
+                    if(splash) splash.classList.add('splash-hidden');
+                    setTimeout(mostrarPopupCopa, 3000);
+                }, 500);
+            });
+
             renderizarCardapioPizzas();
             popularSelectsSabores();
+            popularCombinacoes();
             calcularFrete();
             atualizarContagemRegressiva();
+            initMapLazyLoad();
         });
     </script>
 </body>
